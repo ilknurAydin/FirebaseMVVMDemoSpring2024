@@ -1,4 +1,4 @@
-package aydin.firebasedemospring2024;
+package aydin.firebasedemospring2024.model;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;

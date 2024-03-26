@@ -1,5 +1,7 @@
-package aydin.firebasedemospring2024;
+package aydin.firebasedemospring2024.view;
 
+import aydin.firebasedemospring2024.model.Person;
+import aydin.firebasedemospring2024.viewmodel.DataAccessViewModel;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
@@ -17,12 +19,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class PrimaryController {
+public class DataAccessController {
     @FXML
     private TextField ageTextField;
 
@@ -39,9 +40,6 @@ public class PrimaryController {
     private Button registerButton;
 
     @FXML
-    private Button switchSecondaryViewButton;
-
-    @FXML
     private Button writeButton;
 
     private boolean key;
@@ -54,7 +52,7 @@ public class PrimaryController {
 
     void initialize() {
 
-        AccessDataView accessDataViewModel = new AccessDataView();
+        DataAccessViewModel accessDataViewModel = new DataAccessViewModel();
         nameTextField.textProperty().bindBidirectional(accessDataViewModel.personNameProperty());
         writeButton.disableProperty().bind(accessDataViewModel.isWritePossibleProperty().not());
     }
@@ -77,8 +75,8 @@ public class PrimaryController {
     }
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        DemoApp.setRoot("secondary");
+    private void switchToWelcome() throws IOException {
+        DemoApp.setRoot("/files/welcome");
     }
     public boolean readFirebase()
     {
@@ -121,7 +119,7 @@ public class PrimaryController {
 
     public boolean registerUser() {
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("user222@example.com")
+                .setEmail("user555@example.com")
                 .setEmailVerified(false)
                 .setPassword("secretPassword")
                 .setPhoneNumber("+11234567890")

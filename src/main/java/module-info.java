@@ -15,5 +15,11 @@ module aydin.firebasedemospring2024 {
 
 
     opens aydin.firebasedemospring2024 to javafx.fxml;
-    exports aydin.firebasedemospring2024;
+
+    exports aydin.firebasedemospring2024.viewmodel;
+    opens aydin.firebasedemospring2024.viewmodel to javafx.fxml;
+    exports aydin.firebasedemospring2024.view;
+    opens aydin.firebasedemospring2024.view to javafx.fxml;
+    exports aydin.firebasedemospring2024.model;
+    opens aydin.firebasedemospring2024.model to javafx.fxml;
 }
